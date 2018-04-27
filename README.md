@@ -1,5 +1,7 @@
 # NgrxIssue987
 
+this is an attempt to recreate the bare minimum code to recreate the following error https://stackoverflow.com/questions/49134461/ngrx-store-throws-run-time-error-when-using-createfeatureselector-with-a-class#
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
