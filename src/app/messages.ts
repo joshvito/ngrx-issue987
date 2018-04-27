@@ -1,25 +1,9 @@
 import { List, Record } from 'immutable';
 import * as _state from './messages.state';
 import { Store } from '@ngrx/store';
+import { Message } from './messages.service';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
-export interface IMessage {
-  id: number;
-  text: string;
-}
-
-const messageRecord = Record({
-  id: null,
-  text: null
-});
-
-export class Message extends messageRecord implements IMessage {
-  id: number;
-  text: string;
-  constructor(config: IMessage) {
-    super(config);
-  }
-}
 
 export function reducer(state = _state.initialState, { type, payload }) {
 

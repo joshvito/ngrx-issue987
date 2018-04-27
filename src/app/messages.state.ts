@@ -1,8 +1,8 @@
 import { List, Record } from 'immutable';
-import { IMessage, Message } from './messages';
+import * as M from './messages.service';
 
 interface IState {
-  messages: IMessage[];
+  messages: M.IMessage[];
   datetime: string;
 }
 
@@ -12,11 +12,11 @@ const stateRecord = Record({
 });
 
 export class State extends stateRecord implements State {
-  messages: List<Message>;
+  messages: List<M.Message>;
   datetime: string;
   constructor(config: IState) {
     super(Object.assign({}, config, {
-      messages: config.messages && List(config.messages.map(m => new Message(m))),
+      messages: config.messages && List(config.messages.map(m => new M.Message(m))),
     }));
   }
 }

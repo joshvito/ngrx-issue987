@@ -4,20 +4,20 @@ import { Store, select } from '@ngrx/store';
 import * as fromRoot from './reducers';
 import { Observable } from 'rxjs/Observable';
 import { List } from 'immutable';
-import { Message } from './messages';
+import { Message } from './messages.service';
 
 @Component({
   selector: 'app-second-component',
-  template: '<h1>Last Updated (Receiver)</h1><div>{{(messagesObservable | async)}}</div>'
+  template: '<h1>Last Updated (Receiver)</h1><div>{{(messagesObservable | async)?.datetime}}</div>'
 })
 export class SecondComponent {
   messagesObservable: Observable<string>;
 
   constructor(private store: Store<any>) {
-    this.messagesObservable = this.store.pipe(select(fromRoot.getMessageTime));
-    this.messagesObservable.subscribe(data => {
-      console.log(typeof data);
-    });
+    // this throws error
+    // this.messagesObservable = this.store.pipe(select(fromRoot.getMessageTime));
+    this.messagesObservable = this.store.select('messages');
+
   }
 
 }

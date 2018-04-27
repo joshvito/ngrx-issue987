@@ -7,6 +7,7 @@ import { ThirdComponent } from './third.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { AppComponent } from './app.component';
+import { MessageService } from './messages.service';
 
 
 @NgModule({
@@ -15,9 +16,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers)
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
